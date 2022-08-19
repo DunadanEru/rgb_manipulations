@@ -1,12 +1,19 @@
+let inputRGB = document.getElementById("rgb-input")
+let generateBtn = document.getElementById("generateHSL")
 
-// hsl(43,100%,50%)
+
+
+generateBtn.addEventListener("click", function generateBtn() {
+    generateTheme(inputRGB.textContent);
+
+})
+
+// hsl(43,100%,50%) 
 function generateTheme(color, numberOfTints) {
     let _color = color || "#000";
     let _numberOfTints = numberOfTints || 5;
     let colorHSL = hexToHSL(_color);
     let arr = [];
-    console.log(colorHSL);
-
     hslIntegerValues = getIntegersFromString(colorHSL);
     console.log(hslIntegerValues)
     console.log(colorHSL);
@@ -60,21 +67,20 @@ function hexToHSL(H) {
 
 
 function getIntegersFromString(str) {
-    str = "START" + str + "END";
-    str = str.split("");
+    _str = str + "e";    // end any char to end of string in case last char is number digit
+    _str = _str.split("");
     let onNumberDigit = false;
     let numbersString = "";
-    for (i = str.length - 1; i > -1; i--) {
+    for (i = _str.length - 1; i > -1; i--) {
         if (onNumberDigit) {
-            if (isNaN(str[i - 1])) { onNumberDigit = false }; // check if next char is not number (number finishes here)
-            numbersString += str[i];
+            if (isNaN(_str[i - 1])) { onNumberDigit = false };   // check if next char is not number (number finishes here)
+            numbersString += _str[i];
         };
-        if (isNaN(str[i - 1])) { numbersString += "," };
-        if (!isNaN(str[i - 1])) { onNumberDigit = true };  // check if we got char of end of number (number starts here)
+        if (isNaN(_str[i - 1])) { numbersString += "," };
+        if (!isNaN(_str[i - 1])) { onNumberDigit = true };   // check if we got char of end of number (number starts here)
     };
-    return numbersString.split("").reverse().join("").split(",").filter(Number)
+    return numbersString.split("").reverse().join("").split(",").filter(Number);
 }
 
 
-generateTheme("#ffb700");
-console.log(getIntegersFromString("777!@#ara de chem iomanum inc&$%*#$%#$8882346@#%@#$h orinak berem, asenq 97% es amen inch ashxatuma, bayc toshni chi! 24 tokos havai maner em grum,. tesnenq inch klini 3.1428"))
+

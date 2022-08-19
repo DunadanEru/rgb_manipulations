@@ -1,0 +1,65 @@
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --bgColor: rgb(70, 135, 146);
+    --brdColor: rgb(41, 77, 83);
+    --txtColor: #fff;
+    --btn_height: 35px;
+    --btnBg:goldenrod;
+    --btnBgHover:rgb(161, 119, 12);
+    --btnTxt:#000;
+}
+
+.container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 2fr 7fr 1fr;
+    padding: 10px;
+    background-color: var(--bgColor);
+    border: 2px solid var(--brdColor);
+    color: var(--txtColor);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    color: var(--txtColor);
+    
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.settings { 
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/2;
+    grid-row: 2/4;
+    color: var(--txtColor);
+    border: 2px solid var(--brdColor);
+    border-radius: 5px;
+    gap: 5px;
+    padding: 10px;
+
+}
+
+.footer {
+    display: flex;
+    grid-column: 1/3;
+    grid-row: 3/4;
+}
+
