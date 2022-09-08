@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border: solid #000 1px;
 }
 
 :root{
@@ -14,17 +15,20 @@
     --btnBg:goldenrod;
     --btnBgHover:rgb(161, 119, 12);
     --btnTxt:#000;
+    --boxGap: 5px;
+    --containerGap: 10px;
 }
 
 .container {
     display: grid;
-    gap: 10px;
+    gap: var(--containerGap);
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 2fr 7fr 1fr;
+    grid-template-rows: 1fr 7fr 1fr;
     padding: 10px;
     background-color: var(--bgColor);
     border: 2px solid var(--brdColor);
     color: var(--txtColor);
+    height: 100vh;
 }
 
 .header {
@@ -38,17 +42,33 @@
 
 .main {
     display: flex;
-    justify-content: center;
-    align-self: center;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
     grid-column: 2/3;
     grid-row: 2/3;
+    gap: var(--boxGap);
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.ratio-box {
+    display: flex;
+    flex: 0 0 calc(33.3333% - var(--boxGap));
+    border: solid #3f3f3f 3px;
+    border-radius: 5px;
+}
+
+.ratio-box::before {
+    content: "";
+    padding-top: 66.6666%;
+    background-color: azure;
 }
 
 .settings { 
     display: flex;
     flex-direction: column;
     grid-column: 1/2;
-    grid-row: 2/4;
+    grid-row: 2/3;
     color: var(--txtColor);
     border: 2px solid var(--brdColor);
     border-radius: 5px;
