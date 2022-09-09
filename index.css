@@ -48,7 +48,7 @@
     grid-row: 2/3;
     gap: var(--boxGap);
     justify-content: start;
-    align-items: flex-start;
+    align-content: flex-start;  /*align-items will align only in single row / align-content will align all rows  */
 }
 
 .ratio-box {
@@ -74,7 +74,6 @@
     border-radius: 5px;
     gap: 5px;
     padding: 10px;
-
 }
 
 .footer {
